@@ -1,5 +1,6 @@
 from PIL import Image
 from PIL import ImageOps
+import sys
 
 def create_ascii_image(img, f):
     width, height = img.size
@@ -19,9 +20,8 @@ def create_ascii_image(img, f):
                 f.write("@")
         f.write('\n')
 
-
-im = Image.open('monalisa.jpg')
-size = im.size
+img_name = "images/" + str(sys.argv[1])
+im = Image.open(img_name)
 
 gray_im = ImageOps.grayscale(im)
 
