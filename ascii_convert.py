@@ -21,11 +21,11 @@ def create_ascii_image(img, f):
         f.write('\n')
 
 img_name = "images/" + str(sys.argv[1])
-im = Image.open(img_name)
-
+im = Image.open(img_name).resize((150,150))
 gray_im = ImageOps.grayscale(im)
 
 f = open("ascii_image.txt", 'w')
 create_ascii_image(gray_im, f)
+
 im.close()
 f.close()
